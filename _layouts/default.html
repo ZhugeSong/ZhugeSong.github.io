@@ -19,11 +19,27 @@
 	<header class="mdc-toolbar">
 		<div class="mdc-toolbar__row">
 			<section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-				<a href="#" class="material-icons mdc-toolbar__icon--menu">menu</a>
+				<button id="drawer-nav-button" class="material-icons mdc-toolbar__icon--menu">menu</button>
 				<span class="mdc-toolbar__title">{{ page.project }}</span>
 			</section>
 		</div>
 	</header>
+	<aside id="drawer-nav" class="mdc-temporary-drawer">
+		<nav class="mdc-temporary-drawer__drawer">
+			<header class="mdc-temporary-drawer__header">
+				<div class="mdc-temporary-drawer__header-content">
+					ZhugeSong.github.io
+				</div>
+			</header>
+			<nav class="mdc-temporary-drawer__content mdc-list">
+				<a class="mdc-list-item" href="/">
+					<!--<span class="material-icons mdc-list-item__start-detail" aria-hidden="true">home</span>-->Home
+				</a>
+				<a class="mdc-list-item" href="/about.html">About</a>
+				<a class="mdc-list-item" href="/levin/">Project Levin</a>
+			</nav>
+		</nav>
+	</aside>
 	<main>
 		{{ content }}
 	</main>
@@ -39,5 +55,9 @@
 	</footer>-->
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<script>window.mdc.autoInit();</script>
+	<script>
+		var drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector("#drawer-nav"));
+		document.querySelector("#drawer-nav-button").addEventListener("click", function() { drawer.open = true; });
+	</script>
 </body>
 </html>
