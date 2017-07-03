@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body class="mdc-typography">
-	<header class="mdc-toolbar">
+	<header class="mdc-toolbar" data-mdc-auto-init="MDCToolbar">
 		<div class="mdc-toolbar__row">
 			<section class="mdc-toolbar__section mdc-toolbar__section--align-start">
 				<button id="drawer-nav-button" class="material-icons mdc-toolbar__icon--menu">menu</button>
@@ -24,7 +24,7 @@
 			</section>
 		</div>
 	</header>
-	<aside id="drawer-nav" class="mdc-temporary-drawer">
+	<aside id="page__drawer" class="mdc-temporary-drawer">
 		<nav class="mdc-temporary-drawer__drawer">
 			<header class="mdc-temporary-drawer__header">
 				<div class="mdc-temporary-drawer__header-content">
@@ -56,7 +56,7 @@
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<script>window.mdc.autoInit();</script>
 	<script>
-		var drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector("#drawer-nav"));
+		var drawer = new mdc.drawer.MDCTemporaryDrawer(document.querySelector("#page__drawer"));
 		document.querySelector("#drawer-nav-button").addEventListener("click", function() { drawer.open = true; });
 	</script>
 </body>
