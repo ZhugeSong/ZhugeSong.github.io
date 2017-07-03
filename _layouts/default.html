@@ -13,6 +13,11 @@
 			--mdc-theme-primary: #212121;
 			--mdc-theme-accent: #d50000;
 		}
+		.page__content {
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	</style>
 </head>
 <body class="mdc-typography">
@@ -40,7 +45,7 @@
 			</nav>
 		</nav>
 	</aside>
-	<main>
+	<main class="page__content">
 		{{ content }}
 	</main>
 	<!--<footer class="mdc-toolbar">
