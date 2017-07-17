@@ -1,0 +1,47 @@
+---
+layout: default
+project: ZhugeSong.github.io
+title: Ruby Markup Generator
+---
+<div class="mdc-layout-grid">
+	<div class="mdc-layout-grid__inner">
+		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+			<h2>Simple Ruby Markup Generator</h2>
+			<p>
+				This form generates HTML ruby markup around a pair of base and ruby text markup strings.
+				It currently only supports the simple case of non-grouped ruby; that is, one ruby string applied to an entire base string.
+			</p>
+		</div>
+		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+			<form id="simple-ruby-form" action="#">
+				<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+					<input id="simple-ruby-base-text" type="text" class="mdc-textfield__input" value="漢字">
+					<label for="simple-ruby-base-text" class="mdc-textfield__label mdc-textfield__label--float-above">Base Text Markup</label>
+				</div>
+				<div class="mdc-textfield" data-mdc-auto-init="MDCTextfield">
+					<input id="simple-ruby-ruby-text" type="text" class="mdc-textfield__input" value="かんじ">
+					<label for="simple-ruby-ruby-text" class="mdc-textfield__label mdc-textfield__label--float-above">Ruby Text Markup</label>
+				</div>
+				<button id="simple-ruby-submit" type="submit"
+								class="mdc-button mdc-button--raised mdc-button--accent"
+								data-mdc-auto-init="MDCRipple">
+					Generate Markup
+				</button>
+			</form>
+		</div>
+		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+			<code id="simple-ruby-output" aria-live="polite" aria-relevant="all"></code>
+		</div>
+	</div>
+</div>
+<script>
+	document.getElementById("simple-ruby-form").addEventListener("submit", function(event) {
+		var output = "<ruby><rb>";
+		output += document.getElementById("simple-ruby-base-text").value;
+		output += "</rb><rp>（</rp><rt>";
+		output += document.getElementById("simple-ruby-ruby-text").value;
+		output += "</rt><rp>）</rp></ruby>"
+		document.getElementById("simple-ruby-output").textContent = output;
+		event.preventDefault();
+	});
+</script>
