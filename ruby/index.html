@@ -11,6 +11,9 @@ title: Ruby Markup Generator
 				This form generates HTML ruby markup around a pair of base and ruby text markup strings.
 				It currently only supports the simple case of non-grouped ruby; that is, one ruby string applied to an entire base string.
 			</p>
+			<p>
+				If your browser supports it, the form itself should automatically update the markup output as you edit the input fields.
+			</p>
 		</div>
 		<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
 			<form id="simple-ruby-form">
@@ -46,10 +49,16 @@ title: Ruby Markup Generator
 		}
 
 		var form = document.getElementById("simple-ruby-form");
+		var base = document.getElementById("simple-ruby-base-text");
+		var ruby = document.getElementById("simple-ruby-ruby-text");
 
 		form.addEventListener("submit", function(e) {
 			updateFormOutput();
 			e.preventDefault();
 		});
+		base.addEventListener("input", updateFormOutput);
+		base.addEventListener("change", updateFormOutput);
+		ruby.addEventListener("input", updateFormOutput);
+		ruby.addEventListener("change", updateFormOutput);
 	});
 </script>
