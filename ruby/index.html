@@ -35,13 +35,21 @@ title: Ruby Markup Generator
 	</div>
 </div>
 <script>
-	document.getElementById("simple-ruby-form").addEventListener("submit", function(event) {
-		var output = "<ruby><rb>";
-		output += document.getElementById("simple-ruby-base-text").value;
-		output += "</rb><rp>（</rp><rt>";
-		output += document.getElementById("simple-ruby-ruby-text").value;
-		output += "</rt><rp>）</rp></ruby>"
-		document.getElementById("simple-ruby-output").textContent = output;
-		event.preventDefault();
+	document.addEventListener("DOMContentLoaded", function() {
+		function updateFormOutput() {
+			var output = "<ruby><rb>";
+			output += document.getElementById("simple-ruby-base-text").value;
+			output += "</rb><rp>（</rp><rt>";
+			output += document.getElementById("simple-ruby-ruby-text").value;
+			output += "</rt><rp>）</rp></ruby>"
+			document.getElementById("simple-ruby-output").textContent = output;
+		}
+
+		var form = document.getElementById("simple-ruby-form");
+
+		form.addEventListener("submit", function(e) {
+			updateFormOutput();
+			e.preventDefault();
+		});
 	});
 </script>
